@@ -114,8 +114,8 @@ if ($vracenipodaci->num_rows == 0) {
           <form action="#" method="post" id=dodajZaduzenogform enctype="multipart/form-data">
             <div class="modal-content">
               <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Dodaj zaduženo lice</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
               </div>
               <div class="modal-body">
                 <label>Ime</label>
@@ -159,36 +159,36 @@ if ($vracenipodaci->num_rows == 0) {
 
       <div id="izmeniModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
-          <form action="#" method="POST" id=izmeni_form enctype="multipart/form-data">
+          <form action="#" method="post" id="izmeni_form" enctype="multipart/form-data">
             <div class="modal-content">
               <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Izmeni podatke o zaduženom licu</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
               </div>
               <div class="modal-body">
                 <label>Ime</label>
                 <br>
-                <input type="text" id="Ime" class="form-control" />
+                <input type="text" id="Ime" name="ime" class="form-control" />
                 <br>
                 <label>Prezime</label>
                 <br>
-                <input type="text" id="Prezime" class="form-control" />
+                <input type="text" id="Prezime" name="prezime" class="form-control" />
                 <br>
                 <label>BrojTelefona</label>
                 <br>
-                <input type="text" id="BrojTelefona" class="form-control" />
+                <input type="text" id="BrojTelefona" name="brojTelefona" class="form-control" />
                 <br>
                 <label>Email</label>
                 <br>
-                <input type="text" id="Email" class="form-control" />
+                <input type="text" id="Email" name="email" class="form-control" />
                 <br>
                 <label>OpisZaduzenja</label>
                 <br>
-                <input type="text" id="OpisZaduzenja" class="form-control" />
+                <input type="text" id="OpisZaduzenja" name="opisZaduzenja" class="form-control" />
                 <br>
                 <label>Datum</label>
                 <br>
-                <input type="date" id="Datum" class="form-control" />
+                <input type="date" id="Datum" name="datum" class="form-control" />
                 <br>
                 <br>
               </div>
@@ -206,6 +206,7 @@ if ($vracenipodaci->num_rows == 0) {
       <script type="text/javascript">
         $("#dodajZaduzenogBtn").click(function(e) {
           if ($("#dodajZaduzenogform")[0].checkValidity()) {
+            debugger;
             e.preventDefault();
             $("#dodajZaduzenogBtn").val('Please Wait...');
             $.ajax({
@@ -227,8 +228,13 @@ if ($vracenipodaci->num_rows == 0) {
           }
         });
         $(document).ready(function(e) {
+
+          $(document).on('click', '#btn-dodaj', function(params) {
+            $("#userModal")[0].classList.add('show');
+          })
+
           $(document).on('click', '.editBtn', function() {
-            
+
             var Id = +this.id
             var Ime = $(this).closest('tr').children('td[data-target=Ime]').text();
             var Prezime = $(this).closest('tr').children('td[data-target=Prezime]').text();
@@ -244,12 +250,11 @@ if ($vracenipodaci->num_rows == 0) {
             $('#OpisZaduzenja').val(OpisZaduzenja);
             $('#Datum').val(Datum);
             $('#izmenaId').val(Id);
-            $('#izmeniModal').modal('show');
-
-
+            $('#izmeniModal')[0].classList.add('show');
           });
+
           $('#IzmeniBtn').click(function() {
-            
+
             var Id = +$('#izmenaId').val();
             var Ime = $('#Ime').val();
             var Prezime = $('#Prezime').val();
@@ -262,7 +267,7 @@ if ($vracenipodaci->num_rows == 0) {
               method: 'post',
               data: $("#izmeni_form").serialize() + '&action=update_zaduzeni',
               success: function(response) {
-                
+
                 console.log(response);
                 // $("dodajZaduzenogBtn").val('Dodaj zaduzenog');
                 // $("#dodajZaduzenogform")[0].reset();
@@ -273,7 +278,7 @@ if ($vracenipodaci->num_rows == 0) {
                 });
               },
               error: function(response) {
-                
+
               }
             });
           });
@@ -330,7 +335,7 @@ if ($vracenipodaci->num_rows == 0) {
             td = tr[i].getElementsByTagName("td")[1];
             if (td) {
               txtValue = td.textContent || td.innerText;
-              
+
               if (txtValue.toUpperCase().indexOf(filter) > -1) {
                 tr[i].style.display = "";
               } else {
