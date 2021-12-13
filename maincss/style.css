@@ -1,0 +1,112 @@
+*,*:before,*:after{
+box-sizing: border-box;
+}
+html{
+  overflow-y: scroll;
+}
+@font-face{
+  font-family: quake2import;
+  src:url("quake2.ttf");
+}
+body{
+  background-image: url("../img/SLIKAZASAJT.jpg");
+    background-size: 100% 100%; 
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+  font-family: quake2import;
+}
+.glavni{
+  width:450px;
+  margin:70px;
+}
+.signup,
+.login{
+width: 50%;
+background: #ffff;
+height: 60px;
+float:left;
+text-align: center;
+line-height: 60px;
+cursor:pointer;
+text-transform: uppercase;
+}
+
+.signup-form,
+.login-form{
+  background: #ffff;
+  box-sizing: border-box;
+  padding: 40px;
+  clear:both;
+  width: 100%;
+  background:rgba(0,0,0,0.3);
+  box-shadow: 0 4px 10px 4px rgba(19,35,47,0.3);
+  border-radius: 15px;
+}
+input,textarea{
+    font-size: 20px;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding:5px 10px;
+    background: none;
+    background-image: none;
+    border:1px solid #a0b3b0;
+    color:#ffffff;
+    border-radius: 0;
+    -webkit-transition:border-color .25s ease,box-shadow .25s ease;
+    transition:border-color .25s ease,box-shadow .25s ease;
+    margin-bottom: 25px;
+}
+.input:focus{
+  border:2px solid #34b3a0;
+}
+.btn{
+    
+    outline: none;
+    border-radius: 0;
+    padding:15px 0;
+    font-size: 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    background: #1ab188;
+    color:#ffffff;
+    -webkit-transition: all 0.5s ease;
+    transition:all 0.5s ease;
+    -webkit-appearance:none;
+    border-radius: 10px;
+}
+.btn:hover, .button:focus{
+    background:#179b77;
+}
+.btn-primary{
+    display:block;
+    width:100%;
+}
+.forgot{
+    margin-top: -20px;
+    text-align: right;
+}
+
+.signup,
+.login{
+  display: block;
+  text-decoration: none;
+  padding: 15px;
+  background:rgba (160,179,176,0.25);
+  color:#a0b3b0;
+  font-size: 20px;
+  float: left;
+  width: 50%;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transaction:-5s ease;
+  transition: .5s ease;
+  border-radius: 10px;
+}
+.signup,
+.login{
+  background: #179b77;
+  color:#ffffff;
+}
+

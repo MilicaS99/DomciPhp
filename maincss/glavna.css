@@ -1,0 +1,69 @@
+
+body{
+  background-image: url("../img/slikaglavna.jpg");
+    background-size: 100% 100%; 
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+   
+
+}
+.content{
+    max-width: 1200px;
+    margin:auto;
+
+}
+
+.btn{
+    background-color:#6cd8dc;
+}
+.btn-danger{
+ background-color: brown;
+}
+div.modal-content{
+  
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+}
+
+.zaduzeni_form{
+    width: 80%;
+    border: none;
+    border-radius: 1rem;
+    padding: 1.5%;
+    background:rgba(0,0,0,0.3);
+    font-weight: 600;
+    
+    cursor: pointer;
+
+}
+h1{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 35px;
+    font-style:italic ;
+    font-weight: 110;
+     text-align: center;
+    padding-bottom: 60px;
+}
+.btn-pretraga{
+}
+
+table {
+  background-color: aliceblue;
+}
+
+#pretraga-input[type=text] {
+  width: 100%;
+  box-sizing: border-box;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-image: url('https://img.icons8.com/color/search');
+  background-position: 1px 3px; 
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+}
+
+#btn-pretraga {
+    width: 100%;
+}
