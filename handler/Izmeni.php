@@ -10,27 +10,41 @@ if (
   // && isset($_POST['OpisZaduzenja']) && isset($_POST['Datum'])
 ) {
 
-  $id = ($_POST['id']);
-  $ime = ($_POST['ime']);
-  $prezime = ($_POST['prezime']);
-  $brojTelefona = ($_POST['brojTelefona']);
-  $email = ($_POST['email']);
-  $opisZaduzenja = ($_POST['opisZaduzenja']);
-  $datum = ($_POST['datum']);
+  try {
 
- 
-  $query = "UPDATE zaduzeni 
-                     SET Ime = $ime,
-                         Prezime = $prezime,
-                         BrojTelefona = $brojTelefona,
-                         OpisZaduzenja = $opisZaduzenja,
-                        Datum = $datum,
-                        Email = $email
+    $objekatJson = json_encode($_POST);
+    $zaduzeni =  json_decode($objekatJson);
 
-               WHERE Id=$id";
+    $id = $zaduzeni->id;
+    echo $id;
+    $ime = $zaduzeni->ime;
+    echo  $ime;
+    $prezime = $zaduzeni->prezime;
+    echo $prezime;
+    $brojTelefona = $zaduzeni->brojTelefona;
+    echo $brojTelefona;
+    $email = $zaduzeni->email;
+    echo $email;
+    $opisZaduzenja = $zaduzeni->opisZaduzenja;
+    echo $opisZaduzenja;
+    $datum = $zaduzeni->datum;
+    echo $datum;
 
-  $stmt = $conn->prepare($query);
-  $stmt->execute();
+    $query = "UPDATE zaduzeni 
+                      SET Ime = '$ime',
+                          Prezime = '$prezime',
+                          BrojTelefona = '$brojTelefona',
+                          OpisZaduzenja = '$opisZaduzenja',
+                          Datum = '$datum',
+                          Email = '$email'
+
+                WHERE Id = $id";
+
+    echo $query;
+
+    $stmt = $conn->prepare($query);
+    $stmt->execute();
+  } catch (PDOException $e) {
+    echo $sql . "<br>" . $e->getMessage();
+  }
 }
-
-?>

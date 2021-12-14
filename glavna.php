@@ -265,9 +265,9 @@ if ($vracenipodaci->num_rows == 0) {
             $.ajax({
               url: 'handler/Izmeni.php',
               method: 'post',
-              data: $("#izmeni_form").serialize() + '&action=update_zaduzeni',
+              data: $("#izmeni_form").serialize() + '&action=update_zaduzeni&id=' + Id,
               success: function(response) {
-
+                debugger;
                 console.log(response);
                 // $("dodajZaduzenogBtn").val('Dodaj zaduzenog');
                 // $("#dodajZaduzenogform")[0].reset();
